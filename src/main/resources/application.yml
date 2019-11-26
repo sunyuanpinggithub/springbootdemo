@@ -1,0 +1,24 @@
+student:
+  name: sunyp
+  sex: girl
+db:
+ host: localhost
+ port: 3306
+ database: test
+spring:
+  datasource:
+    url: jdbc:mysql://${db.host}:${db.port}/${db.database}
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+management:
+  endpoints:
+    web: #分为web 类型、JMX两类
+      base-path: /actuator #基础的
+      exposure: #需要暴露出来的endpoint
+        include: ["beans","env","info","person"]
+info:
+  name: hehehe
